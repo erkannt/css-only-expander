@@ -11,6 +11,7 @@
 
     <h2>Table with an expander</h2>
 
+		<input type="checkbox">
     <table>
       <thead class="visually-hidden">
         <tr>
@@ -32,11 +33,11 @@
           <td>Hexagons</td>
           <td>333</td>
         </tr>
-        <tr>
+        <tr class="overflow">
           <td>Gyroscopes</td>
           <td>5</td>
         </tr>
-        <tr>
+        <tr class="overflow">
           <td>Dinosaurs</td>
           <td>82</td>
         </tr>
@@ -59,6 +60,9 @@
 		}
 		td {
 			padding-right: 1rem
+		}
+		[type="checkbox"]:checked ~ table >tbody > .overflow {
+			display: none;
 		}
   </style>
 </html>
