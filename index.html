@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CSS-only Expander</title>
+  </head>
+  <body>
+    <h1>CSS-only Expander</h1>
+
+    <h2>Table with an expander</h2>
+
+    <table>
+      <thead class="visually-hidden">
+        <tr>
+          <th>List name</th>
+          <th>Articles</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Computational and Systems Biology</td>
+          <td>83</td>
+        </tr>
+        <tr>
+          <td>Neurons and such</td>
+          <td>25</td>
+        </tr>
+        <tr>
+          <td>Hexagons</td>
+          <td>333</td>
+        </tr>
+        <tr>
+          <td>Gyroscopes</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>Dinosaurs</td>
+          <td>82</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><a href="#">View all lists</a></p>
+  </body>
+  <style>
+    html {
+      max-width: 70ch;
+      padding: 3em 1em;
+      margin: auto;
+      line-height: 1.75;
+      font-size: 1.25em;
+      font-family: sans-serif;
+    }
+		th {
+			text-align: left;
+			padding-right: 1rem
+		}
+		td {
+			padding-right: 1rem
+		}
+  </style>
+</html>
