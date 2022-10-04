@@ -11,39 +11,41 @@
 
     <h2>Table with an expander</h2>
 
-		<input type="checkbox">
-    <table>
-      <thead class="visually-hidden">
-        <tr>
-          <th>List name</th>
-          <th>Articles</th>
-        </tr>
-      </thead>
+    <div class="wrapper">
+      <input type="checkbox" id="expander_id" />
+      <label for="expander_id"></label>
+      <table>
+        <thead class="visually-hidden">
+          <tr>
+            <th>List name</th>
+            <th>Articles</th>
+          </tr>
+        </thead>
 
-      <tbody>
-        <tr>
-          <td>Computational and Systems Biology</td>
-          <td>83</td>
-        </tr>
-        <tr>
-          <td>Neurons and such</td>
-          <td>25</td>
-        </tr>
-        <tr>
-          <td>Hexagons</td>
-          <td>333</td>
-        </tr>
-        <tr class="overflow">
-          <td>Gyroscopes</td>
-          <td>5</td>
-        </tr>
-        <tr class="overflow">
-          <td>Dinosaurs</td>
-          <td>82</td>
-        </tr>
-      </tbody>
-    </table>
-    <p><a href="#">View all lists</a></p>
+        <tbody>
+          <tr>
+            <td>Computational and Systems Biology</td>
+            <td>83</td>
+          </tr>
+          <tr>
+            <td>Neurons and such</td>
+            <td>25</td>
+          </tr>
+          <tr>
+            <td>Hexagons</td>
+            <td>333</td>
+          </tr>
+          <tr class="overflow">
+            <td>Gyroscopes</td>
+            <td>5</td>
+          </tr>
+          <tr class="overflow">
+            <td>Dinosaurs</td>
+            <td>82</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </body>
   <style>
     html {
@@ -54,15 +56,53 @@
       font-size: 1.25em;
       font-family: sans-serif;
     }
-		th {
-			text-align: left;
-			padding-right: 1rem
-		}
-		td {
-			padding-right: 1rem
-		}
-		[type="checkbox"]:checked ~ table >tbody > .overflow {
-			display: none;
-		}
+
+    table {
+      margin-bottom: 0.5rem;
+    }
+
+    th {
+      text-align: left;
+      padding-right: 1rem;
+    }
+    td {
+      padding-right: 1rem;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    input {
+      position: absolute;
+      left: -999999px;
+    }
+
+    input:focus + label {
+      border: solid 1px orangered;
+    }
+
+    label {
+      color: orangered;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    [type="checkbox"] ~ table > tbody > .overflow {
+      display: none;
+    }
+
+    [type="checkbox"]:checked ~ table > tbody > .overflow {
+      display: table-row;
+    }
+
+    label::after {
+      content: "View all lists ⇩";
+    }
+
+    [type="checkbox"]:checked ~ label::after {
+      content: "Collapse lists ⇧";
+    }
   </style>
 </html>
