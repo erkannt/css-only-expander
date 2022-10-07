@@ -12,10 +12,11 @@
     <h2>Table with an expander</h2>
 
     <div class="wrapper">
-      <input type="checkbox" id="expander_id" />
+      <span class="visually-hidden">Showing 3 of 5 lists.</span>
+      <input type="checkbox" id="expander_id" aria-controls="table_id" />
       <label for="expander_id"></label>
-      <table>
-        <thead class="visually-hidden">
+      <table id="table_id">
+        <thead>
           <tr>
             <th>List name</th>
             <th>Articles</th>
@@ -74,6 +75,16 @@
       flex-direction: column-reverse;
     }
 
+    .visually-hidden {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+
     input {
       position: absolute;
       left: -999999px;
@@ -105,4 +116,14 @@
       content: "Collapse lists ⇧";
     }
   </style>
+  <script>
+    const expander = document.getElementById("expander_id")
+    expander.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        expander.setAttribute('aria-expanded', true)
+      } else {
+        expander.setAttribute('aria-expanded', false)
+      }
+    })
+  </script>
 </html>
